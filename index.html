@@ -2,22 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Educational Game</title>
+    <title>Techpreneurship Quiz</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="game-container">
 
-    <h1>Educational Game</h1>
+    <h1>Techpreneurship Quiz</h1>
 
     <div class="score-board">
-        Score: <span id="score">0</span>
+        Correct: <span id="correct">0</span> |
+        Wrong: <span id="wrong">0</span>
     </div>
 
     <div class="question-box">
-        <h2 id="question">Question will appear here</h2>
+        <h2 id="question">Loading...</h2>
     </div>
+
+    <div id="feedback"></div>
 
     <div class="choices">
         <button class="choice" onclick="checkAnswer(this)"></button>
@@ -26,7 +29,9 @@
         <button class="choice" onclick="checkAnswer(this)"></button>
     </div>
 
-    <button id="nextBtn" onclick="nextQuestion()">Next Question</button>
+    <div class="controls">
+        <button id="resetBtn" onclick="resetGame()">Reset</button>
+    </div>
 
 </div>
 
