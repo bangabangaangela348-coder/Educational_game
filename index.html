@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Educational Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="game-container">
+
+    <h1>Educational Game</h1>
+
+    <div class="score-board">
+        Score: <span id="score">0</span>
+    </div>
+
+    <div class="question-box">
+        <h2 id="question">Question will appear here</h2>
+    </div>
+
+    <div class="choices">
+        <button class="choice" onclick="checkAnswer(this)"></button>
+        <button class="choice" onclick="checkAnswer(this)"></button>
+        <button class="choice" onclick="checkAnswer(this)"></button>
+        <button class="choice" onclick="checkAnswer(this)"></button>
+    </div>
+
+    <button id="nextBtn" onclick="nextQuestion()">Next Question</button>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
