@@ -8,12 +8,12 @@ body {
 }
 
 .game-container {
-    background: white;
+    background: rgb(148, 143, 143);
     padding: 35px;
     width: 520px;
     border-radius: 14px;
     text-align: center;
-    box-shadow: 0px 8px 25px rgba(0,0,0,0.15);
+    box-shadow: 0px 8px 25px rgba(121, 119, 119, 0.15);
 }
 
 h1 {
@@ -22,6 +22,7 @@ h1 {
 }
 
 .score-board {
+     height: 10vh;
     font-size: 16px;
     margin-bottom: 15px;
     font-weight: bold;
@@ -52,15 +53,15 @@ h1 {
     padding: 14px;
     border: none;
     border-radius: 10px;
-    background: #2d89ef;
-    color: white;
+    background: #171718;
+    color: rgb(240, 238, 238);
     cursor: pointer;
     font-size: 15px;
     transition: 0.2s;
 }
 
 .choice:hover {
-    background: #1b5fa7;
+    background: #090a0a;
 }
 
 /* NEW STATES */
@@ -86,8 +87,8 @@ h1 {
     padding: 12px;
     border: none;
     border-radius: 10px;
-    background: #ff4d4d;
-    color: white;
+    background: #201c1c;
+    color: rgb(243, 241, 241);
     cursor: pointer;
     font-size: 15px;
 }
