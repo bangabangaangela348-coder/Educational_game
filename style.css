@@ -8,7 +8,7 @@ body {
 }
 
 .game-container {
-    background: rgb(66, 105, 150);
+    background: rgb(67, 112, 163);
     padding: 35px;
     width: 520px;
     border-radius: 14px;
@@ -61,7 +61,7 @@ h1 {
 }
 
 .choice:hover {
-    background: #090a0a;
+    background: #f7fdfd;
 }
 
 /* NEW STATES */
