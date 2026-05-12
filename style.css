@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background: #5afd7a;
+    background: #20bbc0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,7 +8,7 @@ body {
 }
 
 .game-container {
-    background: rgb(148, 143, 143);
+    background: rgb(66, 105, 150);
     padding: 35px;
     width: 520px;
     border-radius: 14px;
