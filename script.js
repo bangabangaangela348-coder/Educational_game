@@ -1,188 +1,169 @@
-let correct = 0;
-let wrong = 0;
-let currentQuestion = 0;
-
 const questions = [
-    {
-        question: "What best defines a startup?",
-        choices: [
-            "A large corporation",
-            "A new business designed to grow fast",
-            "A school project",
-            "A government agency"
-        ],
-        answer: "A new business designed to grow fast"
-    },
-    {
-        question: "What is an MVP in tech startups?",
-        choices: [
-            "Maximum Value Product",
-            "Minimum Viable Product",
-            "Main Verified Plan",
-            "Market Volume Product"
-        ],
-        answer: "Minimum Viable Product"
-    },
-    {
-        question: "What is SaaS?",
-        choices: [
-            "Software as a Service",
-            "System as a Server",
-            "Storage and Application System",
-            "Secure App Solution"
-        ],
-        answer: "Software as a Service"
-    },
-    {
-        question: "Which is an example of e-commerce?",
-        choices: [
-            "Online shopping platform",
-            "School classroom",
-            "Hospital system",
-            "Library catalog only"
-        ],
-        answer: "Online shopping platform"
-    },
-    {
-        question: "What is scalability in a startup?",
-        choices: [
-            "Ability to reduce size",
-            "Ability to grow efficiently",
-            "Ability to stop operations",
-            "Ability to delete users"
-        ],
-        answer: "Ability to grow efficiently"
-    },
-    {
-        question: "What is venture capital?",
-        choices: [
-            "Money from investors for startups",
-            "Government salary",
-            "Student allowance",
-            "Bank savings only"
-        ],
-        answer: "Money from investors for startups"
-    },
-    {
-        question: "What is a business model?",
-        choices: [
-            "How a business earns money",
-            "Office building design",
-            "Employee schedule",
-            "Logo creation"
-        ],
-        answer: "How a business earns money"
-    },
-    {
-        question: "What is user experience (UX)?",
-        choices: [
-            "How users feel when using a product",
-            "Programming language",
-            "Marketing budget",
-            "Server speed only"
-        ],
-        answer: "How users feel when using a product"
-    },
-    {
-        question: "What is a revenue stream?",
-        choices: [
-            "How money enters a business",
-            "How employees leave",
-            "Marketing design",
-            "Customer complaints"
-        ],
-        answer: "How money enters a business"
-    },
-    {
-        question: "What is a pivot in startup terms?",
-        choices: [
-            "Changing business direction",
-            "Hiring employees",
-            "Closing the company",
-            "Buying equipment"
-        ],
-        answer: "Changing business direction"
-    }
+  {
+    question: "What is entrepreneurship?",
+    choices: [
+      "Creating value",
+      "Sleeping",
+      "Gaming",
+      "Ignoring problems"
+    ],
+    answer: "Creating value"
+  },
+
+  {
+    question: "Which is an example of a startup?",
+    choices: [
+      "Canva",
+      "Bakery",
+      "Carinderia",
+      "Sari-sari Store"
+    ],
+    answer: "Canva"
+  },
+
+  {
+    question: "Which business is usually local?",
+    choices: [
+      "Startup",
+      "Small Business",
+      "Corporation",
+      "Factory"
+    ],
+    answer: "Small Business"
+  },
+
+  {
+    question: "What do entrepreneurs solve?",
+    choices: [
+      "Problems",
+      "Nothing",
+      "Homework",
+      "Vacations"
+    ],
+    answer: "Problems"
+  },
+
+  {
+    question: "Which is part of entrepreneurship?",
+    choices: [
+      "Innovation",
+      "Laziness",
+      "Fear",
+      "Waste"
+    ],
+    answer: "Innovation"
+  }
 ];
 
-function loadQuestion() {
+let currentQuestion = 0;
+let correct = 0;
+let wrong = 0;
+
+const question = document.getElementById("question");
+
+const optionButtons =
+document.querySelectorAll(".option");
+
+const nextBtn =
+document.getElementById("nextBtn");
+
+function loadQuestion(){
+
     let q = questions[currentQuestion];
 
-    document.getElementById("question").innerText = q.question;
+    question.innerText = q.question;
 
-    let buttons = document.querySelectorAll(".choice");
+    optionButtons.forEach((button,index)=>{
 
-    buttons.forEach((btn, i) => {
-        btn.disabled = false;
-        btn.className = "choice";
-        btn.innerText = q.choices[i];
+        button.innerText = q.choices[index];
+
+        button.classList.remove(
+            "correct",
+            "wrong"
+        );
+
+        button.disabled = false;
     });
-
-    document.getElementById("feedback").innerText = "";
 }
 
-function checkAnswer(button) {
-    let selected = button.innerText;
-    let correctAnswer = questions[currentQuestion].answer;
+optionButtons.forEach(button=>{
 
-    let buttons = document.querySelectorAll(".choice");
+    button.addEventListener("click",()=>{
 
-    buttons.forEach(btn => btn.disabled = true);
+        checkAnswer(button);
+    });
+});
 
-    let correctButton;
+function checkAnswer(button){
 
-    buttons.forEach(btn => {
-        if (btn.innerText === correctAnswer) {
-            correctButton = btn;
+    let answer =
+    questions[currentQuestion].answer;
+
+    optionButtons.forEach(btn=>{
+
+        btn.disabled = true;
+
+        if(btn.innerText === answer){
+
+            btn.classList.add("correct");
         }
     });
 
-    if (selected === correctAnswer) {
-        correct++;
-        document.getElementById("feedback").innerText = "✔ Correct";
-        document.getElementById("feedback").style.color = "green";
+    if(button.innerText === answer){
 
-        button.classList.add("correct");
-    } else {
+        correct++;
+
+        document.getElementById(
+            "popup"
+        ).style.display = "flex";
+
+    }else{
+
         wrong++;
-        document.getElementById("feedback").innerText = "✘ Wrong";
-        document.getElementById("feedback").style.color = "red";
 
         button.classList.add("wrong");
-        if (correctButton) correctButton.classList.add("correct");
     }
 
-    document.getElementById("correct").innerText = correct;
-    document.getElementById("wrong").innerText = wrong;
+    document.getElementById(
+        "correct"
+    ).innerText = correct;
 
-    setTimeout(nextQuestion, 1200);
+    document.getElementById(
+        "wrong"
+    ).innerText = wrong;
+
+    document.getElementById(
+        "feedback"
+    ).innerText =
+    `Final Score → Correct: ${correct} | Wrong: ${wrong}`;
 }
 
-function nextQuestion() {
+nextBtn.addEventListener("click",()=>{
+
     currentQuestion++;
 
-    if (currentQuestion < questions.length) {
-        loadQuestion();
-    } else {
-        document.getElementById("question").innerText = "Quiz Completed!";
-        document.querySelector(".choices").style.display = "none";
+    if(currentQuestion >= questions.length){
 
-        document.getElementById("feedback").innerText =
-            `Final Score → Correct: ${correct} | Wrong: ${wrong}`;
+        question.innerText =
+        "Quiz Finished!";
+
+        document.querySelector(
+            ".choices"
+        ).style.display = "none";
+
+        nextBtn.style.display = "none";
+
+        return;
     }
-}
-
-function resetGame() {
-    correct = 0;
-    wrong = 0;
-    currentQuestion = 0;
-
-    document.querySelector(".choices").style.display = "grid";
-
-    document.getElementById("correct").innerText = 0;
-    document.getElementById("wrong").innerText = 0;
 
     loadQuestion();
+});
+
+function closePopup(){
+
+    document.getElementById(
+        "popup"
+    ).style.display = "none";
 }
 
 loadQuestion();

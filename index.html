@@ -1,40 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Techpreneurship Quiz</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Entrepreneurship Quiz</title>
+
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="game-container">
+  <div class="score-board">
+    ✅ Correct: <span id="correct">0</span>
+    ❌ Wrong: <span id="wrong">0</span>
+  </div>
 
-    <h1>Techpreneurship Quiz</h1>
+  <div class="container">
 
-    <div class="score-board">
-        Correct: <span id="correct">0</span> |
-        Wrong: <span id="wrong">0</span>
-    </div>
+    <h1 class="title">ENTREPRENEURSHIP QUIZ</h1>
 
-    <div class="question-box">
-        <h2 id="question">Loading...</h2>
+    <p class="subtitle">
+      Interactive Learning Presentation
+    </p>
+
+    <div class="quiz-container">
+
+      <h2 id="question"></h2>
+
+      <div class="choices">
+        <button class="option"></button>
+        <button class="option"></button>
+        <button class="option"></button>
+        <button class="option"></button>
+      </div>
+
+      <button id="nextBtn">
+        Next Question
+      </button>
+
     </div>
 
     <div id="feedback"></div>
 
-    <div class="choices">
-        <button class="choice" onclick="checkAnswer(this)"></button>
-        <button class="choice" onclick="checkAnswer(this)"></button>
-        <button class="choice" onclick="checkAnswer(this)"></button>
-        <button class="choice" onclick="checkAnswer(this)"></button>
+  </div>
+
+  <div class="popup" id="popup">
+
+    <div class="popup-content">
+
+      <h2>Correct Answer!</h2>
+
+      <p>Great Job Student 🎉</p>
+
+      <button onclick="closePopup()">
+        Continue
+      </button>
+
     </div>
 
-    <div class="controls">
-        <button id="resetBtn" onclick="resetGame()">Reset</button>
-    </div>
+  </div>
 
-</div>
+  <script src="script.js"></script>
 
-<script src="script.js"></script>
 </body>
 </html>

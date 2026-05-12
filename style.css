@@ -1,94 +1,135 @@
-body {
-    font-family: Arial, sans-serif;
-    background: #20bbc0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
 }
 
-.game-container {
-    background: rgb(67, 112, 163);
-    padding: 35px;
-    width: 520px;
-    border-radius: 14px;
-    text-align: center;
-    box-shadow: 0px 8px 25px rgba(121, 119, 119, 0.15);
+body{
+    background:linear-gradient(to right,#0f172a,#1e3a8a);
+    color:white;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
 }
 
-h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
+.container{
+    width:100%;
+    max-width:900px;
 }
 
-.score-board {
-     height: 10vh;
-    font-size: 16px;
-    margin-bottom: 15px;
-    font-weight: bold;
+.title{
+    text-align:center;
+    font-size:60px;
+    margin-bottom:10px;
 }
 
-.question-box {
-    margin: 25px 0;
-    min-height: 80px;
+.subtitle{
+    text-align:center;
+    font-size:22px;
+    margin-bottom:40px;
+    color:#dbeafe;
 }
 
-#question {
-    font-size: 20px;
+.score-board{
+    position:fixed;
+    top:20px;
+    right:20px;
+    background:rgba(255,255,255,0.1);
+    padding:20px;
+    border-radius:15px;
+    font-size:22px;
+    backdrop-filter:blur(5px);
 }
 
-#feedback {
-    margin-bottom: 12px;
-    font-weight: bold;
-    min-height: 20px;
+.quiz-container{
+    background:rgba(255,255,255,0.08);
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
 }
 
-.choices {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
+#question{
+    font-size:32px;
+    margin-bottom:30px;
 }
 
-.choice {
-    padding: 14px;
-    border: none;
-    border-radius: 10px;
-    background: #171718;
-    color: rgb(240, 238, 238);
-    cursor: pointer;
-    font-size: 15px;
-    transition: 0.2s;
+.choices{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
 }
 
-.choice:hover {
-    background: #f7fdfd;
+.option{
+    padding:20px;
+    border:none;
+    border-radius:12px;
+    font-size:18px;
+    cursor:pointer;
+    transition:0.3s;
 }
 
-/* NEW STATES */
-.choice.correct {
-    background: #28a745 !important;
+.option:hover{
+    transform:scale(1.03);
 }
 
-.choice.wrong {
-    background: #dc3545 !important;
+.correct{
+    background:green;
+    color:white;
+    font-size:22px;
+    font-weight:bold;
 }
 
-.choice.disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
+.wrong{
+    background:red;
+    color:white;
 }
 
-.controls {
-    margin-top: 18px;
+#nextBtn{
+    margin-top:30px;
+    padding:15px 30px;
+    border:none;
+    border-radius:12px;
+    font-size:20px;
+    background:#facc15;
+    cursor:pointer;
 }
 
-#resetBtn {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 10px;
-    background: #048304;
-    color: rgb(243, 241, 241);
-    cursor: pointer;
-    font-size: 15px;
+#feedback{
+    text-align:center;
+    margin-top:30px;
+    font-size:30px;
+    font-weight:bold;
+}
+
+.popup{
+    display:none;
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    top:0;
+    left:0;
+    justify-content:center;
+    align-items:center;
+}
+
+.popup-content{
+    background:white;
+    color:black;
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+}
+
+.popup-content button{
+    margin-top:20px;
+    padding:12px 25px;
+    border:none;
+    background:blue;
+    color:white;
+    border-radius:10px;
+    cursor:pointer;
 }
